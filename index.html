@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conozco diversas formas de expresame</title>
+    <link rel="stylesheet" type="text/css" href="./src/animate.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="node_modules/jspdf/dist/jspdf.umd.min.js"> -->
+    <link rel="preload" href="styles.css" as="styles">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="./src/jspdf.min.js"></script>
+    <!-- <link href="print.css" rel="stylesheet" type="text/css" media="print"> -->
+
+
+</head>
+
+<body onload="init()">
+    <div style="position: absolute;top: 0px;z-index: 1;">
+        <img src="./assets/Img/logo.png" alt="logo: escuela nueva">
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!--  <span class="close">&times;</span> -->
+
+        </div>
+
+    </div>
+    <div class="contendor-bienvenida">
+        <div class="contenido-actividad-bienvenida">
+
+            <div class="menu-principal">
+                <div class="titulo-menu">
+                    <h1>Seleccionamos uno de los siguientes temas</h1>
+                </div>
+                <div class="contenedor-menu-principal">
+                    <div class="opciones animate__animated animate__fadeIn">
+                        <div class="menu" id="menu1P" onclick="menuPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+
+                        </div>
+                    </div>
+                    <div class="opciones animate__animated animate__fadeIn">
+                        <div class="menu" id="menu2P" onclick="menuPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sub-menu-principalA1">
+                <div class="titulo-menu">
+                    <h1>Escuchemos los distintos tipos de narraciones</h1>
+                </div>
+                <div class="contenedor-sub-menu">
+                    <div class="opciones ">
+                        <h2>Musico</h2>
+                        <div class="menu" id="menu1SubA1" onclick="menuSubPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+
+                        </div>
+                    </div>
+                    <div class="opciones">
+                        <h2>Narrador deportivo</h2>
+                        <div class="menu" id="menu2SubA1" onclick="menuSubPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+
+                        </div>
+                    </div>
+                    <div class="opciones">
+                        <h2>Maestro</h2>
+                        <div class="menu" id="menu3SubA1" onclick="menuSubPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-botones">
+                    <div class="button" onclick="retornarMenuPrincipal()">Regresar</div>
+                </div>
+            </div>
+            <div class="sub-menu-principalA2">
+                <div class="titulo-menu">
+                    <h1>Seleccionamos uno de los siguientes temas</h1>
+                </div>
+                <div class="contenedor-sub-menu">
+                    <div class="opciones ">
+                        <div class="menu" id="menu1SubA2" onclick="menuSubPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+                            <h2>Creemos una historia</h2>
+                        </div>
+                    </div>
+                    <div class="opciones">
+                        <div class="menu" id="menu2SubA2" onclick="menuSubPrincipal(this.id)">
+
+                        </div>
+                        <div style="
+                        width: 23vh;
+                    ">
+                            <h2>Creemos Adivinanzas</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-botones">
+                    <div class="button" onclick="retornarMenuPrincipal()">Regresar</div>
+                </div>
+            </div>
+            <div id="actividad1OpA1">
+                <h1>Narración e imagen</h1>
+                <br>
+                <div class="contenedor-actividad1-opcion1-A1">
+
+                    <div class="contenedor-actividad1-opcion1-A1-row">
+                        <p>Identifiquemos la emoción del personaje</p>
+                        <div>
+                            <img src="./assets/img/musico.png" id="imagen1-opcion1-A1" class=" imagenA1-opcion1-A1 responsive">
+                        </div>
+                        <div>
+                            <div class="contenedor-botones-opcion1-A1">
+                                <div class="button">
+                                    Ira 
+                                </div>
+                                <div class="button">
+                                    Alegría
+                                </div>
+                                <div class="button">
+                                    Angustia
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+
+                    </div>
+                    <div class="contenedor-actividad1-opcion1-A1-row">
+
+                        <div>
+                            <p>Escuchemos atentamente la siguiente narración</p>
+                        </div>
+                        <div>
+                            <div>Músico</div>
+                            <div>
+                                <div class="botonPlayPause">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                          <p>
+                              Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón jugar.
+                          </p>
+                        </div>
+
+                    </div>
+               
+
+                </div>
+                <div class="contenedor-botones">
+                    <div class="button" onclick="retornarMenuSubMenu()">Menu</div>
+                </div>
+
+            </div>
+            <div id="actividad2OpA1">
+                <h1>Narración e imagen</h1>
+                <br>
+                <div class="contenedor-actividad1-opcion1-A1">
+
+                    <div class="contenedor-actividad1-opcion1-A1-row">
+                        <p>Identifiquemos la emoción del personaje</p>
+                        <div>
+                            <img src="./assets/img/futbol.png" id="imagen1-opcion2-A1" class=" imagenA1-opcion1-A1 responsive">
+                        </div>
+                        <div>
+                            <div class="contenedor-botones-opcion1-A1">
+                                <div class="button">
+                                    Euforia 
+                                </div>
+                                <div class="button">
+                                    Miedo
+                                </div>
+                                <div class="button">
+                                    Sorpresa
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+
+                    </div>
+                    <div class="contenedor-actividad1-opcion1-A1-row">
+
+                        <div>
+                            <p>Escuchemos atentamente la siguiente narración</p>
+                        </div>
+                        <div>
+                            <div>Narrador deportivo</div>
+                            <div>
+                                <div class="botonPlayPause">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                          <p>
+                              Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón jugar.
+                          </p>
+                        </div>
+
+                    </div>
+               
+
+                </div>
+                <div class="contenedor-botones">
+                    <div class="button" onclick="retornarMenuSubMenu()">Menu</div>
+                </div>
+
+            </div>
+            <div id="actividad3OpA1">
+                <h1>Narración e imagen</h1>
+                <br>
+                <div class="contenedor-actividad1-opcion1-A1">
+
+                    <div class="contenedor-actividad1-opcion1-A1-row">
+                        <p>Identifiquemos la emoción del personaje</p>
+                        <div>
+                            <img src="./assets/img/maestra.png" id="imagen1-opcion3-A1" class=" imagenA1-opcion1-A1 responsive">
+                        </div>
+                        <div>
+                            <div class="contenedor-botones-opcion1-A1">
+                                <div class="button">
+                                    Trizteza 
+                                </div>
+                                <div class="button">
+                                    Pereza
+                                </div>
+                                <div class="button">
+                                    Felicidad
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+
+                    </div>
+                    <div class="contenedor-actividad1-opcion1-A1-row">
+
+                        <div>
+                            <p>Escuchemos atentamente la siguiente narración</p>
+                        </div>
+                        <div>
+                            <div>Maestra</div>
+                            <div>
+                                <div class="botonPlayPause">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                          <p>
+                              Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón jugar.
+                          </p>
+                        </div>
+
+                    </div>
+               
+
+                </div>
+                <div class="contenedor-botones">
+                    <div class="button" onclick="retornarMenuSubMenu()">Menu</div>
+                </div>
+
+            </div>
+            <div id="actividad1">
+                <h1>Escribamos una historia sobre la siguiente situación</h1>
+                <br>
+                <form id="formulario1actividad" onSubmit=" return imprimirHistoriaA1(event)">
+                    <div class="contenedor-actividad1">
+
+                        <div>
+
+                            <div>
+                                <img src="./assets/img/T1.jpg" id="imagen1A1" class=" imagenA1 responsive">
+                            </div>
+                            <div>
+                                <textarea class="textareaA1" name="texto1" id="texto1" cols="30" rows="10"
+                                    maxlength="127" placeholder="(max. 127 caracteres.)"></textarea>
+                            </div>
+
+
+
+                        </div>
+                        <div>
+
+
+                            <div>
+                                <img src="./assets/img/T2.jpg" id="imagen2A1" class="imagenA1 responsive">
+                            </div>
+                            <div>
+                                <textarea class="textareaA1" name="texto2" id="texto2" cols="30" rows="10"
+                                    maxlength="127" placeholder="(max. 127 caracteres.)"></textarea>
+                            </div>
+
+                        </div>
+                        <div>
+
+                            <div>
+                                <img src="./assets/img/T3.jpg" id="imagen3A1" class="imagenA1 responsive">
+                            </div>
+
+                            <div>
+                                <textarea class="textareaA1" name="texto3" id="texto3" cols="30" rows="10"
+                                    maxlength="127" placeholder="(max. 127 caracteres.)"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="contenedor-botones">
+                        <input type="submit" class="button" id="imprimirBtn" value="Imprimir">
+                        <div class="button" onclick="retornarMenuSubMenu()">Menu</div>
+                    </div>
+                </form>
+            </div>
+            <div id="actividad2">
+                <h1>Escribamos una adivinanza sobre las imágenes que observamos.</h1>
+                <br>
+                <form id="formulario1actividad" onSubmit=" return imprimirHistoriaA2(event)">
+                    <div class="contenedor-actividad2">
+                        <div>
+                            <div>
+                                <img src="./assets/img/T11.jpg" id="imagen1A2" class=" imagenA2 responsive">
+                            </div>
+                            <div>
+                                <textarea class="textareaA2" name="texto1" id="texto1" cols="60" rows="5"
+                                    maxlength="127" placeholder="(max. 127 caracteres.)"></textarea>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div>
+                                <img src="./assets/img/T12.jpg" id="imagen2A2" class="imagenA2 responsive">
+                            </div>
+                            <div>
+                                <textarea class="textareaA2" name="texto2" id="texto2" cols="60" rows="5"
+                                    maxlength="127" placeholder="(max. 127 caracteres.)"></textarea>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div>
+                                <img src="./assets/img/T13.jpg" id="imagen3A2" class="imagenA2 responsive">
+                            </div>
+                            <div>
+                                <textarea class="textareaA2" name="texto3" id="texto3" cols="60" rows="5"
+                                    maxlength="127" placeholder="(max. 127 caracteres.)"></textarea>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="contenedor-botones">
+                        <input type="submit" class="button" id="imprimirBtn2" value="Imprimir">
+                        <div class="button" onclick="retornarMenuSubMenu()">Menu</div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
