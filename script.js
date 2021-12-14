@@ -4,8 +4,37 @@ let video;
 
 let menuactual;
 let menuactualSubmenu;
+let audioActividad = null;
+let verificaFinaudio;
+let elementoActualSound = null;
+let temporalTextoBoton = ''
+let botonesOopcionesA1 = [
+    '#opcionA1-A1-0',
+    '#opcionB1-A1-1',
+    '#opcionC1-A1-0',
+    '#opcionA2-A1-1',
+    '#opcionB2-A1-0',
+    '#opcionC2-A1-0',
+    '#opcionA3-A1-0',
+    '#opcionB3-A1-0',
+    '#opcionC3-A1-1'
+];
+
+
+
+/*Variables actividad arrastar y soltar */
+let figura_dragId;
+let imag_drag_element;
+let slideadtividadDragDrog=0
+
+let actividadesA1DragDrop = [
+    '.actividad-drag-drop-A1',
+    '.actividad-drag-drop-A2',
+    '.actividad-drag-drop-A3',
+]
 
 function init() {
+
 
 
 }
@@ -31,18 +60,21 @@ function menuPrincipal(id) {
 function menuSubPrincipal(id) {
     switch (id) {
         case 'menu1SubA1':
+            audioActividad = new Sonidos('Audio1')
             document.querySelector('.sub-menu-principalA1').style.display = 'none';
-            document.querySelector('#actividad1OpA1').style.display='block';
+            document.querySelector('#actividad1OpA1').style.display = 'block';
             menuactual = 'actividad1OpA1'
             break;
         case 'menu2SubA1':
+            audioActividad = new Sonidos('Audio2')
             document.querySelector('.sub-menu-principalA1').style.display = 'none';
-            document.querySelector('#actividad2OpA1').style.display='block';
+            document.querySelector('#actividad2OpA1').style.display = 'block';
             menuactual = 'actividad2OpA1'
             break;
         case 'menu3SubA1':
+            audioActividad = new Sonidos('Audio3')
             document.querySelector('.sub-menu-principalA1').style.display = 'none';
-            document.querySelector('#actividad3OpA1').style.display='block';
+            document.querySelector('#actividad3OpA1').style.display = 'block';
             menuactual = 'actividad3OpA1'
             break;
         case 'menu1SubA2':
@@ -62,20 +94,24 @@ function menuSubPrincipal(id) {
 }
 
 function retornarMenuSubMenu() {
+    reiniciarBotonesA1()
     switch (menuactual) {
         case 'actividad1OpA1':
+
             document.querySelector('.sub-menu-principalA1').style.display = 'block';
-            document.querySelector('#actividad1OpA1').style.display='none';
+            document.querySelector('#actividad1OpA1').style.display = 'none';
             menuactual = ''
             break;
         case 'actividad2OpA1':
+
             document.querySelector('.sub-menu-principalA1').style.display = 'block';
-            document.querySelector('#actividad2OpA1').style.display='none';
+            document.querySelector('#actividad2OpA1').style.display = 'none';
             menuactual = ''
             break;
         case 'actividad3OpA1':
+
             document.querySelector('.sub-menu-principalA1').style.display = 'block';
-            document.querySelector('#actividad3OpA1').style.display='none';
+            document.querySelector('#actividad3OpA1').style.display = 'none';
             menuactual = ''
             break;
         case 'menu1SubA2':
@@ -93,6 +129,8 @@ function retornarMenuSubMenu() {
 }
 
 function retornarMenuPrincipal() {
+    /*  audioActividad.stopAudio()
+     audioActividad = null */
     switch (menuactualSubmenu) {
         case 'SubMenu1P':
             document.querySelector('.menu-principal').style.display = 'block';
@@ -112,6 +150,127 @@ function retornarMenuPrincipal() {
 }
 
 
+function playSonido(id) {
+
+    audioActividad.playAudio(verificarFinAudio)
+    elementoActualSound = `#${id}`
+    document.querySelector(`#${id}`).removeEventListener('click', playSonido, false)
+    document.querySelector(`#${id}`).addEventListener('click', stopSonido, false)
+    document.querySelector(`#${id}`).classList.remove('botonPlay')
+    document.querySelector(`#${id}`).classList.add('botonPause')
+    //verificarFinAudio(`#${id}`)
+}
+
+function verificarFinAudio() {
+    document.querySelector(elementoActualSound).classList.remove('botonPause')
+    document.querySelector(elementoActualSound).classList.add('botonPlay')
+}
+
+function stopSonido(e) {
+    audioActividad.stopAudio()
+    document.querySelector(`#${e.target.id}`).removeEventListener('click', stopSonido, false)
+    document.querySelector(`#${e.target.id}`).addEventListener('click', playSonido, false)
+    document.querySelector(`#${e.target.id}`).classList.add('botonPlay')
+    document.querySelector(`#${e.target.id}`).classList.remove('botonPause')
+}
+
+function verificarRespuesta(e) {
+
+    let respuesta = e.substring(e.length - 1, e.length)
+    temporalTextoBoton = document.querySelector(`#${e}`).innerHTML
+
+    if (respuesta == 1) {
+        document.querySelector(`#${e}`).innerHTML = ''
+
+        document.querySelector(`#${e}`).classList.remove('button')
+        document.querySelector(`#${e}`).classList.add('opcionCorrectaIcono')
+    } else {
+        document.querySelector(`#${e}`).style.pointerEvents = 'none'
+        document.querySelector(`#${e}`).innerHTML = ''
+        document.querySelector(`#${e}`).classList.remove('button')
+        document.querySelector(`#${e}`).classList.remove('opcionCorrectaIcono')
+        document.querySelector(`#${e}`).classList.add('opcionInCorrectaIcono')
+        setTimeout(() => {
+            document.querySelector(`#${e}`).style.pointerEvents = 'all'
+            document.querySelector(`#${e}`).innerHTML = temporalTextoBoton
+            document.querySelector(`#${e}`).classList.remove('opcionCorrectaIcono')
+            document.querySelector(`#${e}`).classList.remove('opcionInCorrectaIcono')
+            document.querySelector(`#${e}`).classList.add('button')
+        }, 1000);
+    }
+}
+
+
+function reiniciarBotonesA1() {
+    botonesOopcionesA1.forEach(element => {
+        let respuesta = element.substring(element.length - 1, element.length)
+        if (respuesta == 1) {
+            document.querySelector(`${element}`).innerHTML = temporalTextoBoton
+        }
+        document.querySelector(`${element}`).classList.remove('opcionCorrectaIcono')
+        document.querySelector(`${element}`).classList.remove('opcionInCorrectaIcono')
+        document.querySelector(`${element}`).classList.add('button')
+    });
+}
+
+function actividadSiguienteDragDrop(){
+    document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrog]}`).style.display='none'
+    document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrog+1]}`).style.display='block'
+    slideadtividadDragDrog++
+  
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+
+    ev.pageX = ev.pageX + 26
+    ev.pageY = ev.pageY + 27
+    ev.dataTransfer.setData("text", ev.target.id);
+    //figura_dragId = ev.target.id.split("-")[1]
+  
+    figura_dragId = ev.path[0].id
+    
+
+    imag_drag_element = ev.target.src
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    let dropElemento = ev.path[0].id
+ 
+    if (figura_dragId.substring(0, 4) === ev.path[0].id.substring(0, 4)) {
+
+        //bloque para verificar los pasos y los elementos a mostrar
+
+
+        let elementodrag = document.querySelector(`#${dropElemento}`)
+        elementodrag.style.border = '1px solid green'
+        elementodrag.style.backgroundColor = '#0080008c'
+        elementodrag.style.borderRadius = '12px'
+        document.querySelector(`#${figura_dragId}`).removeAttribute('draggable');
+        document.querySelector(`#${figura_dragId}`).style.pointerEvents = 'none';
+        /*  let data = ev.dataTransfer.getData("text");
+         let nodeCopy = document.getElementById(data).cloneNode(true);
+         nodeCopy.removeAttribute('draggable'); */
+        /* ev.target.appendChild(nodeCopy); */
+
+    } else {
+
+        let elementodrag = document.querySelector(`#${dropElemento}`)
+        elementodrag.style.border = '1px solid red'
+        elementodrag.style.backgroundColor = '#ff00009e'
+        elementodrag.style.borderRadius = '12px'
+        setTimeout(() => {
+            elementodrag.style.border = 'none'
+            elementodrag.style.backgroundColor = 'transparent'
+        }, 1500);
+    }
+
+}
 // Get the modal
 let modal = document.getElementById("myModal");
 

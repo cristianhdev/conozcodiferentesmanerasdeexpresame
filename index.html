@@ -39,7 +39,7 @@
                 </div>
                 <div class="contenedor-menu-principal">
                     <div class="opciones animate__animated animate__fadeIn">
-                        <div class="menu" id="menu1P" onclick="menuPrincipal(this.id)">
+                        <div class="menuPrincipal" id="menu1P" onclick="menuPrincipal(this.id)">
 
                         </div>
                         <div style="
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="opciones animate__animated animate__fadeIn">
-                        <div class="menu" id="menu2P" onclick="menuPrincipal(this.id)">
+                        <div class="menuPrincipal" id="menu2P" onclick="menuPrincipal(this.id)">
 
                         </div>
                         <div style="
@@ -60,14 +60,12 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="sub-menu-principalA1">
                 <div class="titulo-menu">
                     <h1>Escuchemos los distintos tipos de narraciones</h1>
                 </div>
                 <div class="contenedor-sub-menu">
-                    <div class="opciones ">
+                    <div class="opciones animate__animated animate__flipInY">
                         <h2>Musico</h2>
                         <div class="menu" id="menu1SubA1" onclick="menuSubPrincipal(this.id)">
 
@@ -78,7 +76,7 @@
 
                         </div>
                     </div>
-                    <div class="opciones">
+                    <div class="opciones animate__animated animate__flipInY">
                         <h2>Narrador deportivo</h2>
                         <div class="menu" id="menu2SubA1" onclick="menuSubPrincipal(this.id)">
 
@@ -89,7 +87,7 @@
 
                         </div>
                     </div>
-                    <div class="opciones">
+                    <div class="opciones animate__animated animate__flipInY">
                         <h2>Maestro</h2>
                         <div class="menu" id="menu3SubA1" onclick="menuSubPrincipal(this.id)">
 
@@ -110,7 +108,7 @@
                     <h1>Seleccionamos uno de los siguientes temas</h1>
                 </div>
                 <div class="contenedor-sub-menu">
-                    <div class="opciones ">
+                    <div class="opciones animate__animated animate__flipInY">
                         <div class="menu" id="menu1SubA2" onclick="menuSubPrincipal(this.id)">
 
                         </div>
@@ -120,7 +118,7 @@
                             <h2>Creemos una historia</h2>
                         </div>
                     </div>
-                    <div class="opciones">
+                    <div class="opciones animate__animated animate__flipInY">
                         <div class="menu" id="menu2SubA2" onclick="menuSubPrincipal(this.id)">
 
                         </div>
@@ -132,6 +130,7 @@
                     </div>
                 </div>
                 <div class="contenedor-botones">
+
                     <div class="button" onclick="retornarMenuPrincipal()">Regresar</div>
                 </div>
             </div>
@@ -143,21 +142,22 @@
                     <div class="contenedor-actividad1-opcion1-A1-row">
                         <p>Identifiquemos la emoción del personaje</p>
                         <div>
-                            <img src="./assets/img/musico.png" id="imagen1-opcion1-A1" class=" imagenA1-opcion1-A1 responsive">
+                            <img src="./assets/img/musico.png" id="imagen1-opcion1-A1"
+                                class=" imagenA1-opcion1-A1 responsive">
                         </div>
                         <div>
                             <div class="contenedor-botones-opcion1-A1">
-                                <div class="button">
-                                    Ira 
+                                <div class="button" id="opcionA1-A1-0" onclick="verificarRespuesta(this.id)">
+                                    Ira
                                 </div>
-                                <div class="button">
+                                <div class="button" id="opcionB1-A1-1" onclick="verificarRespuesta(this.id)">
                                     Alegría
                                 </div>
-                                <div class="button">
+                                <div class="button" id="opcionC1-A1-0" onclick="verificarRespuesta(this.id)">
                                     Angustia
                                 </div>
                             </div>
-                            
+
                         </div>
 
 
@@ -171,19 +171,21 @@
                         <div>
                             <div>Músico</div>
                             <div>
-                                <div class="botonPlayPause">
+                                <div class="botonPlay" id="botonPlay1" onclick="playSonido(this.id)">
 
                                 </div>
                             </div>
                         </div>
                         <div>
-                          <p>
-                              Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón jugar.
-                          </p>
+                            <p>
+                                Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón
+                                jugar.
+                            </p>
+                            <div class="button">Jugar</div>
                         </div>
 
                     </div>
-               
+
 
                 </div>
                 <div class="contenedor-botones">
@@ -199,21 +201,22 @@
                     <div class="contenedor-actividad1-opcion1-A1-row">
                         <p>Identifiquemos la emoción del personaje</p>
                         <div>
-                            <img src="./assets/img/futbol.png" id="imagen1-opcion2-A1" class=" imagenA1-opcion1-A1 responsive">
+                            <img src="./assets/img/futbol.png" id="imagen1-opcion2-A1"
+                                class=" imagenA1-opcion1-A1 responsive">
                         </div>
                         <div>
                             <div class="contenedor-botones-opcion1-A1">
-                                <div class="button">
-                                    Euforia 
+                                <div class="button" id="opcionA2-A1-1" onclick="verificarRespuesta(this.id)">
+                                    Euforia
                                 </div>
-                                <div class="button">
+                                <div class="button" id="opcionB2-A1-0" onclick="verificarRespuesta(this.id)">
                                     Miedo
                                 </div>
-                                <div class="button">
+                                <div class="button" id="opcionC2-A1-0" onclick="verificarRespuesta(this.id)">
                                     Sorpresa
                                 </div>
                             </div>
-                            
+
                         </div>
 
 
@@ -227,19 +230,21 @@
                         <div>
                             <div>Narrador deportivo</div>
                             <div>
-                                <div class="botonPlayPause">
+                                <div class="botonPlay" id="botonPlay2" onclick="playSonido(this.id)">
 
                                 </div>
                             </div>
                         </div>
                         <div>
-                          <p>
-                              Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón jugar.
-                          </p>
+                            <p>
+                                Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón
+                                jugar.
+                            </p>
+                            <div class="button">Jugar</div>
                         </div>
 
                     </div>
-               
+
 
                 </div>
                 <div class="contenedor-botones">
@@ -255,21 +260,22 @@
                     <div class="contenedor-actividad1-opcion1-A1-row">
                         <p>Identifiquemos la emoción del personaje</p>
                         <div>
-                            <img src="./assets/img/maestra.png" id="imagen1-opcion3-A1" class=" imagenA1-opcion1-A1 responsive">
+                            <img src="./assets/img/maestra.png" id="imagen1-opcion3-A1"
+                                class=" imagenA1-opcion1-A1 responsive">
                         </div>
                         <div>
                             <div class="contenedor-botones-opcion1-A1">
-                                <div class="button">
-                                    Trizteza 
+                                <div class="button" id="opcionA3-A1-0" onclick="verificarRespuesta(this.id)">
+                                    Trizteza
                                 </div>
-                                <div class="button">
+                                <div class="button" id="opcionB3-A1-0" onclick="verificarRespuesta(this.id)">
                                     Pereza
                                 </div>
-                                <div class="button">
+                                <div class="button" id="opcionC3-A1-1" onclick="verificarRespuesta(this.id)">
                                     Felicidad
                                 </div>
                             </div>
-                            
+
                         </div>
 
 
@@ -283,19 +289,21 @@
                         <div>
                             <div>Maestra</div>
                             <div>
-                                <div class="botonPlayPause">
+                                <div class="botonPlay" id="botonPlay3" onclick="playSonido(this.id)">
 
                                 </div>
                             </div>
                         </div>
                         <div>
-                          <p>
-                              Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón jugar.
-                          </p>
+                            <p>
+                                Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón
+                                jugar.
+                            </p>
+                            <div class="button">Jugar</div>
                         </div>
 
                     </div>
-               
+
 
                 </div>
                 <div class="contenedor-botones">
@@ -303,6 +311,146 @@
                 </div>
 
             </div>
+            <div class="contenedor-actividad-drag-drop-A1">
+                <div class="actividad-drag-drop-A1">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración.</h1>
+                        </div>
+                        <div class="texto-actividad-drag-drop-A1">
+                            <p>
+                            <div id="MaA1Drop1A1" ondrop="drop(event)" ondragover="allowDrop(event)">-Permanecimos</div>
+                            <div id="Drop2A1" ondrop="drop(event)" ondragover="allowDrop(event)">allí</div>
+                            <div id="Drop3A1" ondrop="drop(event)" ondragover="allowDrop(event)">una</div>
+                            <div id="Drop4A1" ondrop="drop(event)" ondragover="allowDrop(event)">hora,</div>
+                            <div id="CoA1Drop1A1" ondrop="drop(event)" ondragover="allowDrop(event)">aunque</div>
+                            <div id="Drop5A1" ondrop="drop(event)" ondragover="allowDrop(event)">estábamos</div>
+                            <div id="Drop6A1" ondrop="drop(event)" ondragover="allowDrop(event)">asustados.</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A1">
+                            <div class="contenedor-opciones-actividad-drag-drop-A1-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA1Drag1" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A1-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA1Drag1" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:30%;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDrop()">
+                            Siguiente
+                        </div>
+                    </div>
+                </div>
+                <div class="actividad-drag-drop-A2">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
+                        </div>
+                        <div class="texto-actividad-drag-drop-A2">
+                            <p>
+                            <div id="MaA1DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">Los</div>
+                            <div id="Drop1A2" ondrop="drop(event)" ondragover="allowDrop(event)">árboles</div>
+                            <div id="CoA1DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">y</div>
+                            <div id="Drop2A2" ondrop="drop(event)" ondragover="allowDrop(event)">plantas</div>
+                            <div id="Drop3A2" ondrop="drop(event)" ondragover="allowDrop(event)">son</div>
+                            <div id="Drop4A2" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
+                            <div id="Drop5A2" ondrop="drop(event)" ondragover="allowDrop(event)">especialidad.</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A2">
+                            <div class="contenedor-opciones-actividad-drag-drop-A2-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA1Drag1" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A2-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA1Drag1" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:30%;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDrop()">
+                            Siguiente
+                        </div>
+                    </div>
+                </div>
+                <div class="actividad-drag-drop-A3">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
+                        </div>
+                        <div class="texto-actividad-drag-drop-A3">
+                            <div id="Drop1" ondrop="drop(event)" ondragover="allowDrop(event)">...este</div>
+                            <div id="Drop2" ondrop="drop(event)" ondragover="allowDrop(event)">verano</div>
+                            <div id="Drop3" ondrop="drop(event)" ondragover="allowDrop(event)">iremos</div>
+                            <div id="Drop4" ondrop="drop(event)" ondragover="allowDrop(event)">a</div>
+                            <div id="MaA1Drop1" ondrop="drop(event)" ondragover="allowDrop(event)">Cartagena,</div>
+                            <div id="CoA1Drop1" ondrop="drop(event)" ondragover="allowDrop(event)">sin embargo,</div>
+                            <div id="Drop5" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
+                            <div id="Drop6" ondrop="drop(event)" ondragover="allowDrop(event)">perro</div>
+                            <div id="Drop7" ondrop="drop(event)" ondragover="allowDrop(event)">se</div>
+                            <div id="Drop8" ondrop="drop(event)" ondragover="allowDrop(event)">queda</div>
+                            <div id="Drop9" ondrop="drop(event)" ondragover="allowDrop(event)">en</div>
+                            <div id="Drop10" ondrop="drop(event)" ondragover="allowDrop(event)">casa.</div>
+
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A3">
+                            <div class="contenedor-opciones-actividad-drag-drop-A3-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA1Drag1" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A3-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA1Drag1" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width:30%;margin:0px auto;text-align:center;">
+                    <div class="button" >
+                        Menu
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="actividad-drag-drop-A3">
+
+            </div> -->
             <div id="actividad1">
                 <h1>Escribamos una historia sobre la siguiente situación</h1>
                 <br>
@@ -403,6 +551,7 @@
     </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="./src/sounds.js"></script>
 </body>
 
 </html>
