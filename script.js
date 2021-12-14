@@ -25,12 +25,26 @@ let botonesOopcionesA1 = [
 /*Variables actividad arrastar y soltar */
 let figura_dragId;
 let imag_drag_element;
-let slideadtividadDragDrog=0
+let slideadtividadDragDrogA1 = 0
+let slideadtividadDragDrogA2 = 0
+let slideadtividadDragDrogA3 = 0
 
 let actividadesA1DragDrop = [
-    '.actividad-drag-drop-A1',
-    '.actividad-drag-drop-A2',
-    '.actividad-drag-drop-A3',
+    '.actividad-drag-drop-A1-A1',
+    '.actividad-drag-drop-A2-A1',
+    '.actividad-drag-drop-A3-A1',
+]
+
+let actividadesA2DragDrop = [
+    '.actividad-drag-drop-A1-A2',
+    '.actividad-drag-drop-A2-A2',
+    '.actividad-drag-drop-A3-A2',
+]
+
+let actividadesA3DragDrop = [
+    '.actividad-drag-drop-A1-A3',
+    '.actividad-drag-drop-A2-A3',
+    '.actividad-drag-drop-A3-A3',
 ]
 
 function init() {
@@ -142,6 +156,21 @@ function retornarMenuPrincipal() {
             document.querySelector('.sub-menu-principalA2').style.display = 'none'
             menuactualSubmenu = ''
             break;
+        case 'btn1ActividadDrag':
+            document.querySelector('.menu-principal').style.display = 'block'
+            document.querySelector('.contenedor-actividad-drag-drop-A1').style.display = 'none'
+            menuactualSubmenu = ''
+        break;
+        case 'btn2ActividadDrag':
+            document.querySelector('.menu-principal').style.display = 'block'
+            document.querySelector('.contenedor-actividad-drag-drop-A2').style.display = 'none'
+            menuactualSubmenu = ''
+        break;
+        case 'btn3ActividadDrag':
+            document.querySelector('.menu-principal').style.display = 'block'
+            document.querySelector('.contenedor-actividad-drag-drop-A3').style.display = 'none'
+            menuactualSubmenu = ''
+        break;
 
 
         default:
@@ -213,11 +242,47 @@ function reiniciarBotonesA1() {
     });
 }
 
-function actividadSiguienteDragDrop(){
-    document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrog]}`).style.display='none'
-    document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrog+1]}`).style.display='block'
-    slideadtividadDragDrog++
-  
+function cargarActividadDragAndDrop(e) {
+    switch (e) {
+        case 'btn1ActividadDrag':
+            document.querySelector('#actividad1OpA1').style.display = 'none'
+            document.querySelector('.contenedor-actividad-drag-drop-A1').style.display = 'block'
+            menuactualSubmenu='btn1ActividadDrag'
+            break;
+
+        case 'btn2ActividadDrag':
+            document.querySelector('#actividad2OpA1').style.display = 'none'
+            document.querySelector('.contenedor-actividad-drag-drop-A2').style.display = 'block'
+            menuactualSubmenu='btn2ActividadDrag'
+            break;
+        case 'btn3ActividadDrag':
+            document.querySelector('#actividad3OpA1').style.display = 'none'
+            document.querySelector('.contenedor-actividad-drag-drop-A3').style.display = 'block'
+            menuactualSubmenu='btn3ActividadDrag'
+            break;
+
+        default:
+            break;
+    }
+}
+
+
+function actividadSiguienteDragDropA1() {
+    document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrogA1]}`).style.display = 'none'
+    document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrogA1 + 1]}`).style.display = 'block'
+    slideadtividadDragDrogA1++
+}
+
+function actividadSiguienteDragDropA2() {
+    document.querySelector(`${actividadesA2DragDrop[slideadtividadDragDrogA2]}`).style.display = 'none'
+    document.querySelector(`${actividadesA2DragDrop[slideadtividadDragDrogA2 + 1]}`).style.display = 'block'
+    slideadtividadDragDrogA2++
+}
+
+function actividadSiguienteDragDropA3() {
+    document.querySelector(`${actividadesA3DragDrop[slideadtividadDragDrogA3]}`).style.display = 'none'
+    document.querySelector(`${actividadesA3DragDrop[slideadtividadDragDrogA3 + 1]}`).style.display = 'block'
+    slideadtividadDragDrogA3++
 }
 
 function allowDrop(ev) {
@@ -230,9 +295,9 @@ function drag(ev) {
     ev.pageY = ev.pageY + 27
     ev.dataTransfer.setData("text", ev.target.id);
     //figura_dragId = ev.target.id.split("-")[1]
-  
+
     figura_dragId = ev.path[0].id
-    
+
 
     imag_drag_element = ev.target.src
     ev.dataTransfer.setData("text", ev.target.id);
@@ -241,7 +306,7 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     let dropElemento = ev.path[0].id
- 
+    console.log(figura_dragId.substring(0, 4), ev.path[0].id.substring(0, 4));
     if (figura_dragId.substring(0, 4) === ev.path[0].id.substring(0, 4)) {
 
         //bloque para verificar los pasos y los elementos a mostrar

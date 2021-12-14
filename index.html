@@ -181,7 +181,8 @@
                                 Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón
                                 jugar.
                             </p>
-                            <div class="button">Jugar</div>
+                            <div class="button" id="btn1ActividadDrag" onclick="cargarActividadDragAndDrop(this.id)">
+                                Jugar</div>
                         </div>
 
                     </div>
@@ -240,7 +241,8 @@
                                 Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón
                                 jugar.
                             </p>
-                            <div class="button">Jugar</div>
+                            <div class="button" id="btn2ActividadDrag" onclick="cargarActividadDragAndDrop(this.id)">
+                                Jugar</div>
                         </div>
 
                     </div>
@@ -299,7 +301,8 @@
                                 Encontremos las conjunciones y mayúsculas de la narración haciendo clic en el botón
                                 jugar.
                             </p>
-                            <div class="button">Jugar</div>
+                            <div class="button" id="btn3ActividadDrag" onclick="cargarActividadDragAndDrop(this.id)">
+                                Jugar</div>
                         </div>
 
                     </div>
@@ -312,7 +315,7 @@
 
             </div>
             <div class="contenedor-actividad-drag-drop-A1">
-                <div class="actividad-drag-drop-A1">
+                <div class="actividad-drag-drop-A1-A1">
                     <div class="contenedor-actividad-drag-drop">
                         <div>
                             <h1>Coloreemos las conjunciones y las mayúsculas de la oración.</h1>
@@ -320,12 +323,12 @@
                         <div class="texto-actividad-drag-drop-A1">
                             <p>
                             <div id="MaA1Drop1A1" ondrop="drop(event)" ondragover="allowDrop(event)">-Permanecimos</div>
-                            <div id="Drop2A1" ondrop="drop(event)" ondragover="allowDrop(event)">allí</div>
-                            <div id="Drop3A1" ondrop="drop(event)" ondragover="allowDrop(event)">una</div>
-                            <div id="Drop4A1" ondrop="drop(event)" ondragover="allowDrop(event)">hora,</div>
+                            <div id="DADR1A1-A1" ondrop="drop(event)" ondragover="allowDrop(event)">allí</div>
+                            <div id="DADR2A1-A1" ondrop="drop(event)" ondragover="allowDrop(event)">una</div>
+                            <div id="DADR3A1-A1" ondrop="drop(event)" ondragover="allowDrop(event)">hora,</div>
                             <div id="CoA1Drop1A1" ondrop="drop(event)" ondragover="allowDrop(event)">aunque</div>
-                            <div id="Drop5A1" ondrop="drop(event)" ondragover="allowDrop(event)">estábamos</div>
-                            <div id="Drop6A1" ondrop="drop(event)" ondragover="allowDrop(event)">asustados.</div>
+                            <div id="DADR4A1-A1" ondrop="drop(event)" ondragover="allowDrop(event)">estábamos</div>
+                            <div id="DADR5A1-A1" ondrop="drop(event)" ondragover="allowDrop(event)">asustados.</div>
                             </p>
                         </div>
                         <div class="contenedor-opciones-actividad-drag-drop-A1">
@@ -333,7 +336,7 @@
                                 <div>
                                     Mayúsculas ➜
                                 </div>
-                                <div id="MaA1Drag1" draggable="true" ondragstart="drag(event)">
+                                <div id="MaA1Drag1A1" draggable="true" ondragstart="drag(event)">
                                     <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
                                         class="responsive">
                                 </div>
@@ -342,33 +345,33 @@
                                 <div>
                                     Conjunciones ➜
                                 </div>
-                                <div id="CoA1Drag1" draggable="true" ondragstart="drag(event)">
+                                <div id="CoA1Drag1A1" draggable="true" ondragstart="drag(event)">
                                     <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
                                         class="responsive">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style="width:30%;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDrop()">
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" id="btn-actividad-drag-drop-A1" onclick="actividadSiguienteDragDropA1()">
                             Siguiente
                         </div>
                     </div>
                 </div>
-                <div class="actividad-drag-drop-A2">
+                <div class="actividad-drag-drop-A2-A1">
                     <div class="contenedor-actividad-drag-drop">
                         <div>
                             <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
                         </div>
                         <div class="texto-actividad-drag-drop-A2">
                             <p>
-                            <div id="MaA1DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">Los</div>
-                            <div id="Drop1A2" ondrop="drop(event)" ondragover="allowDrop(event)">árboles</div>
-                            <div id="CoA1DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">y</div>
-                            <div id="Drop2A2" ondrop="drop(event)" ondragover="allowDrop(event)">plantas</div>
-                            <div id="Drop3A2" ondrop="drop(event)" ondragover="allowDrop(event)">son</div>
-                            <div id="Drop4A2" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
-                            <div id="Drop5A2" ondrop="drop(event)" ondragover="allowDrop(event)">especialidad.</div>
+                            <div id="MaA2DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">Los</div>
+                            <div id="DADR5A2-A1" ondrop="drop(event)" ondragover="allowDrop(event)">árboles</div>
+                            <div id="CoA2DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">y</div>
+                            <div id="DADR5A2-A1" ondrop="drop(event)" ondragover="allowDrop(event)">plantas</div>
+                            <div id="DADR5A2-A1" ondrop="drop(event)" ondragover="allowDrop(event)">son</div>
+                            <div id="DADR5A2-A1" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
+                            <div id="DADR5A2-A1" ondrop="drop(event)" ondragover="allowDrop(event)">especialidad.</div>
                             </p>
                         </div>
                         <div class="contenedor-opciones-actividad-drag-drop-A2">
@@ -376,7 +379,7 @@
                                 <div>
                                     Mayúsculas ➜
                                 </div>
-                                <div id="MaA1Drag1" draggable="true" ondragstart="drag(event)">
+                                <div id="MaA2Drag1" draggable="true" ondragstart="drag(event)">
                                     <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
                                         class="responsive">
                                 </div>
@@ -385,45 +388,46 @@
                                 <div>
                                     Conjunciones ➜
                                 </div>
-                                <div id="CoA1Drag1" draggable="true" ondragstart="drag(event)">
+                                <div id="CoA2Drag1" draggable="true" ondragstart="drag(event)">
                                     <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
                                         class="responsive">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style="width:30%;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDrop()">
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDropA1()">
                             Siguiente
                         </div>
                     </div>
                 </div>
-                <div class="actividad-drag-drop-A3">
+                <div class="actividad-drag-drop-A3-A1">
                     <div class="contenedor-actividad-drag-drop">
                         <div>
                             <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
                         </div>
                         <div class="texto-actividad-drag-drop-A3">
-                            <div id="Drop1" ondrop="drop(event)" ondragover="allowDrop(event)">...este</div>
-                            <div id="Drop2" ondrop="drop(event)" ondragover="allowDrop(event)">verano</div>
-                            <div id="Drop3" ondrop="drop(event)" ondragover="allowDrop(event)">iremos</div>
-                            <div id="Drop4" ondrop="drop(event)" ondragover="allowDrop(event)">a</div>
-                            <div id="MaA1Drop1" ondrop="drop(event)" ondragover="allowDrop(event)">Cartagena,</div>
-                            <div id="CoA1Drop1" ondrop="drop(event)" ondragover="allowDrop(event)">sin embargo,</div>
-                            <div id="Drop5" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
-                            <div id="Drop6" ondrop="drop(event)" ondragover="allowDrop(event)">perro</div>
-                            <div id="Drop7" ondrop="drop(event)" ondragover="allowDrop(event)">se</div>
-                            <div id="Drop8" ondrop="drop(event)" ondragover="allowDrop(event)">queda</div>
-                            <div id="Drop9" ondrop="drop(event)" ondragover="allowDrop(event)">en</div>
-                            <div id="Drop10" ondrop="drop(event)" ondragover="allowDrop(event)">casa.</div>
-
+                            <p>
+                            <div id="DADR1A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">...este</div>
+                            <div id="DADR2A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">verano</div>
+                            <div id="DADR3A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">iremos</div>
+                            <div id="DADR4A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">a</div>
+                            <div id="MaA3Drop1A3" ondrop="drop(event)" ondragover="allowDrop(event)">Cartagena,</div>
+                            <div id="CoA3Drop1A3" ondrop="drop(event)" ondragover="allowDrop(event)">sin embargo,</div>
+                            <div id="DADR5A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
+                            <div id="DADR6A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">perro</div>
+                            <div id="DADR7A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">se</div>
+                            <div id="DADR8A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">queda</div>
+                            <div id="DADR9A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">en</div>
+                            <div id="DADR10A3-A1" ondrop="drop(event)" ondragover="allowDrop(event)">casa.</div>
+                            </p>
                         </div>
                         <div class="contenedor-opciones-actividad-drag-drop-A3">
                             <div class="contenedor-opciones-actividad-drag-drop-A3-row">
                                 <div>
                                     Mayúsculas ➜
                                 </div>
-                                <div id="MaA1Drag1" draggable="true" ondragstart="drag(event)">
+                                <div id="MaA3Drag1A3" draggable="true" ondragstart="drag(event)">
                                     <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
                                         class="responsive">
                                 </div>
@@ -432,25 +436,290 @@
                                 <div>
                                     Conjunciones ➜
                                 </div>
-                                <div id="CoA1Drag1" draggable="true" ondragstart="drag(event)">
+                                <div id="CoA3Drop1A3" draggable="true" ondragstart="drag(event)">
                                     <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
                                         class="responsive">
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style="width:30%;margin:0px auto;text-align:center;">
-                    <div class="button" >
-                        Menu
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="retornarMenuPrincipal()">
+                            Menu
+                        </div>
                     </div>
                 </div>
+
             </div>
+            <div class="contenedor-actividad-drag-drop-A2">
+                <div class="actividad-drag-drop-A1-A2">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración.</h1>
+                        </div>
+                        <div class="texto-actividad-drag-drop-A1">
+                            <p>
+                            <div id="MaA2Drop1A2" ondrop="drop(event)" ondragover="allowDrop(event)">Pablo</div>
+                            <div id="DADR1A1-A2" ondrop="drop(event)" ondragover="allowDrop(event)">irá,</div>
+                            <div id="CoA2Drop1A2" ondrop="drop(event)" ondragover="allowDrop(event)">pero</div>
+                            <div id="DADR2A1-A2" ondrop="drop(event)" ondragover="allowDrop(event)">estará</div>
+                            <div id="DADR3A1-A2" ondrop="drop(event)" ondragover="allowDrop(event)">poco</div>
+                            <div id="DADR4A1-A2" ondrop="drop(event)" ondragover="allowDrop(event)">tiempo</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A1">
+                            <div class="contenedor-opciones-actividad-drag-drop-A1-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA2Drag1A2" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A1-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA2Drag1A2" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDropA2()">
+                            Siguiente
+                        </div>
+                    </div>
+                </div>
+                <div class="actividad-drag-drop-A2-A2">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
+                        </div>
+                        <div class="texto-actividad-drag-drop-A2">
+                            <p>
+                            <div id="MaA2DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">-Es</div>
+                            <div id="DADR1A2-A2" ondrop="drop(event)" ondragover="allowDrop(event)">tímido,</div>
+                            <div id="CoA2DropA2" ondrop="drop(event)" ondragover="allowDrop(event)">sin embargo</div>
+                            <div id="DADR2A2-A2" ondrop="drop(event)" ondragover="allowDrop(event)">cuenta</div>
+                            <div id="DADR3A2-A2" ondrop="drop(event)" ondragover="allowDrop(event)">unos</div>
+                            <div id="DADR4A2-A2" ondrop="drop(event)" ondragover="allowDrop(event)">chistes</div>
+                            <div id="DADR5A2-A2" ondrop="drop(event)" ondragover="allowDrop(event)">muy</div>
+                            <div id="DADR6A2-A2" ondrop="drop(event)" ondragover="allowDrop(event)">divertidos.</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A2">
+                            <div class="contenedor-opciones-actividad-drag-drop-A2-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA2DropA2" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A2-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA2DropA2" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDropA2()">
+                            Siguiente
+                        </div>
+                    </div>
+                </div>
+                <div class="actividad-drag-drop-A3-A2">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
+                        </div>
+                        <div class="texto-actividad-drag-drop-A3">
+                            <p>
+                            <div id="DADR1A3-A2" ondrop="drop(event)" ondragover="allowDrop(event)">...vamos</div>
+                            <div id="DADR2A3-A2" ondrop="drop(event)" ondragover="allowDrop(event)">Raquel,</div>
+                            <div id="DADR3A3-A2" ondrop="drop(event)" ondragover="allowDrop(event)">elige</div>
+                            <div id="DADR4A3-A2" ondrop="drop(event)" ondragover="allowDrop(event)">uno</div>
+                            <div id="MaA3Drop1A2" ondrop="drop(event)" ondragover="allowDrop(event)">u</div>
+                            <div id="CoA3Drag1A2" ondrop="drop(event)" ondragover="allowDrop(event)">otro.</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A3">
+                            <div class="contenedor-opciones-actividad-drag-drop-A3-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA3Drag1A2" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A3-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA3Drag1A2" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="retornarMenuPrincipal()">
+                            Menu
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+            <div class="contenedor-actividad-drag-drop-A3">
+                <div class="actividad-drag-drop-A1-A3">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración.</h1>
+                        </div>
+                        <div class="texto-actividad-drag-drop-A1">
+                            <p>
+                            <div id="MaA1Drop1A3" ondrop="drop(event)" ondragover="allowDrop(event)">El</div>
+                            <div id="Drop2A3" ondrop="drop(event)" ondragover="allowDrop(event)">examen</div>
+                            <div id="Drop3A3" ondrop="drop(event)" ondragover="allowDrop(event)">no</div>
+                            <div id="Drop4A3" ondrop="drop(event)" ondragover="allowDrop(event)">es</div>
+                            <div id="Drop5A3" ondrop="drop(event)" ondragover="allowDrop(event)">por</div>
+                            <div id="Drop6A3" ondrop="drop(event)" ondragover="allowDrop(event)">la</div>
+                            <div id="Drop7A3" ondrop="drop(event)" ondragover="allowDrop(event)">mañana,</div>
+                            <div id="CoA1Drop1A3" ondrop="drop(event)" ondragover="allowDrop(event)">sino</div>
+                            <div id="Drop8A3" ondrop="drop(event)" ondragover="allowDrop(event)">por</div>
+                            <div id="Drop9A3" ondrop="drop(event)" ondragover="allowDrop(event)">la</div>
+                            <div id="Drop10A3" ondrop="drop(event)" ondragover="allowDrop(event)">tarde.</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A1">
+                            <div class="contenedor-opciones-actividad-drag-drop-A1-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA1Drag1A3" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A1-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA1Drag1A3" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDropA3()">
+                            Siguiente
+                        </div>
+                    </div>
+                </div>
+                <div class="actividad-drag-drop-A2-A3">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
+                        </div>
+                        <div class="texto-actividad-drag-drop-A2">
+                            <p>
+                            <div id="Drop1A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">...mañana</div>
+                            <div id="Drop2A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">descanso</div>
+                            <div id="Drop2A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">en</div>
+                            <div id="Drop4A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">mi</div>
+                            <div id="Drop5A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">casa,</div>
+                            <div id="CoA2Drop1A3" ondrop="drop(event)" ondragover="allowDrop(event)">auque</div>
+                            <div id="MaA2Drop1A3" ondrop="drop(event)" ondragover="allowDrop(event)">Sandra</div>
+                            <div id="Drop6A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">va</div>
+                            <div id="Drop7A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">al</div>
+                            <div id="Drop8A2A3" ondrop="drop(event)" ondragover="allowDrop(event)">zoológico</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A2">
+                            <div class="contenedor-opciones-actividad-drag-drop-A2-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA2Drag1A3" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A2-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA2Drag1A3" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="actividadSiguienteDragDropA3()">
+                            Siguiente
+                        </div>
+                    </div>
+                </div>
+                <div class="actividad-drag-drop-A3-A3">
+                    <div class="contenedor-actividad-drag-drop">
+                        <div>
+                            <h1>Coloreemos las conjunciones y las mayúsculas de la oración</h1>.
+                        </div>
+                        <div class="texto-actividad-drag-drop-A3">
+                            <p>
+                            <div id="MaA3Drop3A3" ondrop="drop(event)" ondragover="allowDrop(event)">...Negro</div>
+                            <div id="CoA3Drop3A3" ondrop="drop(event)" ondragover="allowDrop(event)">ni</div>
+                            <div id="Drop1A3A3" ondrop="drop(event)" ondragover="allowDrop(event)">azul,</div>
+                            <div id="Drop2A3A3" ondrop="drop(event)" ondragover="allowDrop(event)">lo</div>
+                            <div id="Drop3A3A3" ondrop="drop(event)" ondragover="allowDrop(event)">quiero</div>
+                            <div id="Drop4A3A3" ondrop="drop(event)" ondragover="allowDrop(event)">naranja.</div>
+                            </p>
+                        </div>
+                        <div class="contenedor-opciones-actividad-drag-drop-A3">
+                            <div class="contenedor-opciones-actividad-drag-drop-A3-row">
+                                <div>
+                                    Mayúsculas ➜
+                                </div>
+                                <div id="MaA3Drag3A3" draggable="true" ondragstart="drag(event)">
+                                    <img id="MaA1Drag1Img" src="./assets/img/dragMa.png" alt="mayuscula"
+                                        class="responsive">
+                                </div>
+                            </div>
+                            <div class="contenedor-opciones-actividad-drag-drop-A3-row">
+                                <div>
+                                    Conjunciones ➜
+                                </div>
+                                <div id="CoA3Drag3A3" draggable="true" ondragstart="drag(event)">
+                                    <img id="CoA1Drag1Img" src="./assets/img/dragCo.png" alt="conjunciones"
+                                        class="responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:auto;margin:0px auto;text-align:center;">
+                        <div class="button" onclick="retornarMenuPrincipal()">
+                            Menu
+                        </div>
+                    </div>
+                </div>
 
-            <!-- <div class="actividad-drag-drop-A3">
-
-            </div> -->
+            </div>
             <div id="actividad1">
                 <h1>Escribamos una historia sobre la siguiente situación</h1>
                 <br>

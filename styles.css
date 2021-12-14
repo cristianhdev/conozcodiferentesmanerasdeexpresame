@@ -314,18 +314,70 @@ h6 {
 .menu-principal {
   width: 100%;
   height: -webkit-fill-available;
-  display: none
+  display: block
     /*TODO:Cambie aqui*/
     /*  border: 2px solid red; */
 }
 
-
-/* Actividad drag 1 */
-.actividad-drag-drop-A1 {
+.actividad-drag-drop-A1-A1 {
   width: auto;
   height: -webkit-fill-available;
-  display:block
+  display: block
 }
+.actividad-drag-drop-A2-A1 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: none
+}
+
+.actividad-drag-drop-A3-A1 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: none
+}
+
+/* --------------------- */
+
+.actividad-drag-drop-A1-A2 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: block
+}
+.actividad-drag-drop-A2-A2 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: none
+}
+
+.actividad-drag-drop-A3-A2 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: none
+}
+
+/* --------------------- */
+.actividad-drag-drop-A1-A3 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: block
+}
+.actividad-drag-drop-A2-A3 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: none
+}
+
+.actividad-drag-drop-A3-A3 {
+  width: auto;
+  height: -webkit-fill-available;
+  display: none
+}
+
+
+
+
+/* Actividad drag 1 */
+
 
 .contenedor-actividad-drag-drop {
   display: flex;
@@ -367,7 +419,8 @@ h6 {
   align-items: center;
   justify-content: center;
   align-content: center;
-  margin-top: 32px
+  margin-top: 32px;
+  flex-wrap: wrap;
 }
 
 .texto-actividad-drag-drop-A1 div {
@@ -375,13 +428,9 @@ h6 {
   font-size: 1.8em;
   margin: 12px 2px
 }
+
 /* Fin actividad drag 1 */
 /* Inicio actividad drag 2 */
-.actividad-drag-drop-A2 {
-  width: auto;
-  height: -webkit-fill-available;
-    display:none
-}
 
 
 
@@ -415,7 +464,8 @@ h6 {
   align-items: center;
   justify-content: center;
   align-content: center;
-  margin-top: 32px
+  margin-top: 32px;
+  flex-wrap: wrap;
 }
 
 .texto-actividad-drag-drop-A2 div {
@@ -427,13 +477,6 @@ h6 {
 /* Fin actividad drag 2 */
 
 /* Inicio actividad drag 3 */
-.actividad-drag-drop-A3 {
-  width: auto;
-  height: -webkit-fill-available;
-  display:none
-}
-
-
 
 .contenedor-opciones-actividad-drag-drop-A3 {
   display: flex;
@@ -460,20 +503,22 @@ h6 {
   border: 1px solid orange;
   border-radius: 12px 12px;
   background-color: #ada4213d;
-  height: 30vh;
+  height: 22vh;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
   margin-top: 32px;
-  width:90vh
+  width: 90vh;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .texto-actividad-drag-drop-A3 div {
-  display: contents;
+  display: inline;
   font-size: 1.8em;
   margin: 12px 2px;
-  width:max-content
+  width: max-content
 }
 
 /* Fin actividad drag 3 */
@@ -710,6 +755,12 @@ h6 {
 
 }
 
+
+.contenedor-actividad-drag-drop-A1,.contenedor-actividad-drag-drop-A2,.contenedor-actividad-drag-drop-A3 {
+  display: none
+}
+
+
 /* .modal-content::after{
   position:absolute;
   content:'X';
@@ -766,40 +817,8 @@ h6 {
   padding: 2px 16px;
 }
 
-a.icon-play {
-  width: 100px;
-  height: 100px;
-  border: solid 2px #fff;
-  border-radius: 100px;
-}
 
-a.icon-play:before {
-  content: "";
-  width: 34px;
-  height: 53px;
-  border-left: 2px solid #fff;
-  border-radius: 5px;
-  position: absolute;
-  top: 23px;
-  left: 37px;
-}
 
-a.icon-play:after {
-  content: "";
-  position: absolute;
-  top: 27px;
-  left: 19px;
-  width: 42px;
-  height: 42px;
-  transform: rotate(45deg) skew(-5deg, -5deg);
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
-  border-radius: 5px;
-}
-
-a.icon-play:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
 
 .disabledbutton {
   pointer-events: none;
@@ -910,21 +929,61 @@ a.icon-play:hover {
     flex-direction: column;
   }
 
+  .contenedor-opciones-actividad-drag-drop-A2 {
+    flex-direction: column;
+  }
+
+  .contenedor-opciones-actividad-drag-drop-A3 {
+    flex-direction: column;
+  }
+
   .contenedor-opciones-actividad-drag-drop-A1-row {
     width: -webkit-fill-available;
     height: 8vh;
   }
 
+  .contenedor-opciones-actividad-drag-drop-A2-row {
+    width: -webkit-fill-available;
+    height: 8vh;
+  }
+
+  .contenedor-opciones-actividad-drag-drop-A3-row {
+    width: -webkit-fill-available;
+    height: 8vh;
+  }
+
   .texto-actividad-drag-drop-A1 {
-    height: 37vh;
-    flex-direction: column;
+    height: 30vh;
     width: -webkit-fill-available;
     margin-top: 0px;
   }
 
+  .texto-actividad-drag-drop-A2 {
+    height: 30vh;
+    width: -webkit-fill-available;
+    margin-top: 0px;
+  }
+
+  .texto-actividad-drag-drop-A3 {
+    height: 30vh;
+    width: -webkit-fill-available;
+    margin-top: 0px;
+  }
+
+
   .texto-actividad-drag-drop-A1 div {
     font-size: 1.2em
   }
+
+
+  .texto-actividad-drag-drop-A2 div {
+    font-size: 1.2em
+  }
+
+  .texto-actividad-drag-drop-A3 div {
+    font-size: 1.2em
+  }
+
 
   .responsive {
     width: 65%;
