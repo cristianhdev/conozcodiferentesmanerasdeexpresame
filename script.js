@@ -5,6 +5,8 @@ let video;
 let menuactual;
 let menuactualSubmenu;
 let audioActividad = null;
+let audioOvers=null;
+let audioFondo=null;
 let verificaFinaudio;
 let elementoActualSound = null;
 let temporalTextoBoton = ''
@@ -22,13 +24,15 @@ let botonesOopcionesA1 = [
 
 
 
+
 /*Variables actividad arrastar y soltar */
 let figura_dragId;
 let imag_drag_element;
 let slideadtividadDragDrogA1 = 0
 let slideadtividadDragDrogA2 = 0
 let slideadtividadDragDrogA3 = 0
-
+let puntosBuenoPorActividad=0
+let botonesActividadActual=null
 let actividadesA1DragDrop = [
     '.actividad-drag-drop-A1-A1',
     '.actividad-drag-drop-A2-A1',
@@ -47,8 +51,31 @@ let actividadesA3DragDrop = [
     '.actividad-drag-drop-A3-A3',
 ]
 
+let botonesSiguienteA1 = [
+    '#btn-actividad-drag-drop-A1-A1',
+    '#btn-actividad-drag-drop-A2-A1',
+    '#btn-menu-A1'
+]
+
+
+let botonesSiguienteA2 = [
+    '#btn-actividad-drag-drop-A1-A2',
+    '#btn-actividad-drag-drop-A2-A2',
+    '#btn-menu-A2'
+]
+
+let botonesSiguienteA3 = [   
+    '#btn-actividad-drag-drop-A1-A3',
+    '#btn-actividad-drag-drop-A2-A3',
+    '#btn-menu-A3'
+]
+
+
 function init() {
 
+    audioOvers = new Sonidos('14');
+    audioFondo = new Sonidos('44');
+    audioFondo.playAudioFondo()
 
 
 }
@@ -69,6 +96,16 @@ function menuPrincipal(id) {
         default:
             break;
     }
+}
+
+
+function btnOverMenuP(){
+    audioOvers.playAudio()
+}
+
+
+function btnOutMenuP(){
+    audioOvers.stopAudio()
 }
 
 function menuSubPrincipal(id) {
@@ -183,6 +220,7 @@ function playSonido(id) {
 
     audioActividad.playAudio(verificarFinAudio)
     elementoActualSound = `#${id}`
+    audioFondo.stopAudio()
     document.querySelector(`#${id}`).removeEventListener('click', playSonido, false)
     document.querySelector(`#${id}`).addEventListener('click', stopSonido, false)
     document.querySelector(`#${id}`).classList.remove('botonPlay')
@@ -191,12 +229,14 @@ function playSonido(id) {
 }
 
 function verificarFinAudio() {
+    audioFondo.playAudioFondo()
     document.querySelector(elementoActualSound).classList.remove('botonPause')
     document.querySelector(elementoActualSound).classList.add('botonPlay')
 }
 
 function stopSonido(e) {
     audioActividad.stopAudio()
+    audioFondo.playAudioFondo()
     document.querySelector(`#${e.target.id}`).removeEventListener('click', stopSonido, false)
     document.querySelector(`#${e.target.id}`).addEventListener('click', playSonido, false)
     document.querySelector(`#${e.target.id}`).classList.add('botonPlay')
@@ -206,7 +246,7 @@ function stopSonido(e) {
 function verificarRespuesta(e) {
 
     let respuesta = e.substring(e.length - 1, e.length)
-    temporalTextoBoton = document.querySelector(`#${e}`).innerHTML
+   
 
     if (respuesta == 1) {
         document.querySelector(`#${e}`).innerHTML = ''
@@ -214,6 +254,7 @@ function verificarRespuesta(e) {
         document.querySelector(`#${e}`).classList.remove('button')
         document.querySelector(`#${e}`).classList.add('opcionCorrectaIcono')
     } else {
+        temporalTextoBoton = document.querySelector(`#${e}`).innerHTML
         document.querySelector(`#${e}`).style.pointerEvents = 'none'
         document.querySelector(`#${e}`).innerHTML = ''
         document.querySelector(`#${e}`).classList.remove('button')
@@ -253,22 +294,38 @@ function reiniciarBotonesA1() {
 }
 
 function cargarActividadDragAndDrop(e) {
+    
     switch (e) {
         case 'btn1ActividadDrag':
             document.querySelector('#actividad1OpA1').style.display = 'none'
             document.querySelector('.contenedor-actividad-drag-drop-A1').style.display = 'block'
             menuactualSubmenu='btn1ActividadDrag'
+            botonesActividadActual=botonesSiguienteA1
+            botonesActividadActual.forEach(element => {
+                document.querySelector(`${element}`).classList.remove('disabledbutton')
+                document.querySelector(`${element}`).classList.add('disabledbutton')
+            });
             break;
 
         case 'btn2ActividadDrag':
             document.querySelector('#actividad2OpA1').style.display = 'none'
             document.querySelector('.contenedor-actividad-drag-drop-A2').style.display = 'block'
             menuactualSubmenu='btn2ActividadDrag'
+            botonesActividadActual=botonesSiguienteA2
+            botonesActividadActual.forEach(element => {
+                document.querySelector(`${element}`).classList.remove('disabledbutton')
+                document.querySelector(`${element}`).classList.add('disabledbutton')
+            });
             break;
         case 'btn3ActividadDrag':
             document.querySelector('#actividad3OpA1').style.display = 'none'
             document.querySelector('.contenedor-actividad-drag-drop-A3').style.display = 'block'
             menuactualSubmenu='btn3ActividadDrag'
+            botonesActividadActual=botonesSiguienteA3
+            botonesActividadActual.forEach(element => {
+                document.querySelector(`${element}`).classList.remove('disabledbutton')
+                document.querySelector(`${element}`).classList.add('disabledbutton')
+            });
             break;
 
         default:
@@ -281,18 +338,21 @@ function actividadSiguienteDragDropA1() {
     document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrogA1]}`).style.display = 'none'
     document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrogA1 + 1]}`).style.display = 'block'
     slideadtividadDragDrogA1++
+  
 }
 
 function actividadSiguienteDragDropA2() {
     document.querySelector(`${actividadesA2DragDrop[slideadtividadDragDrogA2]}`).style.display = 'none'
     document.querySelector(`${actividadesA2DragDrop[slideadtividadDragDrogA2 + 1]}`).style.display = 'block'
     slideadtividadDragDrogA2++
+   
 }
 
 function actividadSiguienteDragDropA3() {
     document.querySelector(`${actividadesA3DragDrop[slideadtividadDragDrogA3]}`).style.display = 'none'
     document.querySelector(`${actividadesA3DragDrop[slideadtividadDragDrogA3 + 1]}`).style.display = 'block'
     slideadtividadDragDrogA3++
+   
 }
 
 function allowDrop(ev) {
@@ -328,6 +388,10 @@ function drop(ev) {
         elementodrag.style.borderRadius = '12px'
         document.querySelector(`#${figura_dragId}`).removeAttribute('draggable');
         document.querySelector(`#${figura_dragId}`).style.pointerEvents = 'none';
+        puntosBuenoPorActividad++
+        verificarAvenceBoton()
+        
+       
         /*  let data = ev.dataTransfer.getData("text");
          let nodeCopy = document.getElementById(data).cloneNode(true);
          nodeCopy.removeAttribute('draggable'); */
@@ -345,6 +409,15 @@ function drop(ev) {
         }, 1500);
     }
 
+}
+
+function verificarAvenceBoton(){
+    if(puntosBuenoPorActividad==2){
+        puntosBuenoPorActividad=0
+        document.querySelector(`${botonesActividadActual[0]}`).classList.remove('disabledbutton')
+        document.querySelector(`${botonesActividadActual[0]}`).classList.add('enabledbutton')
+        botonesActividadActual.shift()
+    }
 }
 // Get the modal
 let modal = document.getElementById("myModal");

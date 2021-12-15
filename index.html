@@ -21,6 +21,9 @@
     <div style="position: absolute;top: 0px;z-index: 1;">
         <img src="./assets/Img/logo.png" alt="logo: escuela nueva">
     </div>
+     <div class="titulo-presentacion">
+        <img src="./assets/img/tituloPresentacion.png"  class="responsive-title" alt="logo: escuela nueva">
+    </div>
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -34,12 +37,15 @@
         <div class="contenido-actividad-bienvenida">
 
             <div class="menu-principal">
+                <!-- <div style="width:100%;margin:0px auto">
+                   
+                </div> -->
                 <div class="titulo-menu">
                     <h1>Seleccionamos uno de los siguientes temas</h1>
                 </div>
                 <div class="contenedor-menu-principal">
                     <div class="opciones animate__animated animate__fadeIn">
-                        <div class="menuPrincipal" id="menu1P" onclick="menuPrincipal(this.id)">
+                        <div class="menuPrincipal" id="menu1P" onclick="menuPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -49,7 +55,7 @@
                         </div>
                     </div>
                     <div class="opciones animate__animated animate__fadeIn">
-                        <div class="menuPrincipal" id="menu2P" onclick="menuPrincipal(this.id)">
+                        <div class="menuPrincipal" id="menu2P" onclick="menuPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -67,7 +73,7 @@
                 <div class="contenedor-sub-menu">
                     <div class="opciones animate__animated animate__flipInY">
                         <h2>Musico</h2>
-                        <div class="menu" id="menu1SubA1" onclick="menuSubPrincipal(this.id)">
+                        <div class="menu" id="menu1SubA1" onclick="menuSubPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -78,7 +84,7 @@
                     </div>
                     <div class="opciones animate__animated animate__flipInY">
                         <h2>Narrador deportivo</h2>
-                        <div class="menu" id="menu2SubA1" onclick="menuSubPrincipal(this.id)">
+                        <div class="menu" id="menu2SubA1" onclick="menuSubPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -89,7 +95,7 @@
                     </div>
                     <div class="opciones animate__animated animate__flipInY">
                         <h2>Maestro</h2>
-                        <div class="menu" id="menu3SubA1" onclick="menuSubPrincipal(this.id)">
+                        <div class="menu" id="menu3SubA1" onclick="menuSubPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -109,7 +115,7 @@
                 </div>
                 <div class="contenedor-sub-menu">
                     <div class="opciones animate__animated animate__flipInY">
-                        <div class="menu" id="menu1SubA2" onclick="menuSubPrincipal(this.id)">
+                        <div class="menu" id="menu1SubA2" onclick="menuSubPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -119,7 +125,7 @@
                         </div>
                     </div>
                     <div class="opciones animate__animated animate__flipInY">
-                        <div class="menu" id="menu2SubA2" onclick="menuSubPrincipal(this.id)">
+                        <div class="menu" id="menu2SubA2" onclick="menuSubPrincipal(this.id)" onmouseover="btnOverMenuP()" onmouseout="btnOutMenuP()">
 
                         </div>
                         <div style="
@@ -353,7 +359,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" id="btn-actividad-drag-drop-A1" onclick="actividadSiguienteDragDropA1()">
+                        <div class="button disabledbutton" id="btn-actividad-drag-drop-A1-A1" onclick="actividadSiguienteDragDropA1()">
                             Siguiente
                         </div>
                     </div>
@@ -396,7 +402,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDropA1()">
+                        <div class="button disabledbutton" id="btn-actividad-drag-drop-A2-A1" onclick="actividadSiguienteDragDropA1()">
                             Siguiente
                         </div>
                     </div>
@@ -444,7 +450,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="retornarMenuPrincipal()">
+                        <div class="button disabledbutton" id="btn-menu-A1" onclick="retornarMenuPrincipal()">
                             Menu
                         </div>
                     </div>
@@ -489,7 +495,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDropA2()">
+                        <div class="button disabledbutton"  id="btn-actividad-drag-drop-A1-A2" onclick="actividadSiguienteDragDropA2()">
                             Siguiente
                         </div>
                     </div>
@@ -533,7 +539,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDropA2()">
+                        <div class="button disabledbutton"  id="btn-actividad-drag-drop-A2-A2" onclick="actividadSiguienteDragDropA2()">
                             Siguiente
                         </div>
                     </div>
@@ -575,7 +581,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="retornarMenuPrincipal()">
+                        <div class="button disabledbutton" id="btn-menu-A2" onclick="retornarMenuPrincipal()">
                             Menu
                         </div>
                     </div>
@@ -625,7 +631,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDropA3()">
+                        <div class="button disabledbutton"  id="btn-actividad-drag-drop-A1-A3" onclick="actividadSiguienteDragDropA3()">
                             Siguiente
                         </div>
                     </div>
@@ -671,7 +677,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="actividadSiguienteDragDropA3()">
+                        <div class="button disabledbutton"  id="btn-actividad-drag-drop-A2-A3" onclick="actividadSiguienteDragDropA3()">
                             Siguiente
                         </div>
                     </div>
@@ -713,7 +719,7 @@
                         </div>
                     </div>
                     <div style="width:auto;margin:0px auto;text-align:center;">
-                        <div class="button" onclick="retornarMenuPrincipal()">
+                        <div class="button disabledbutton" id="btn-menu-A3" onclick="retornarMenuPrincipal()">
                             Menu
                         </div>
                     </div>

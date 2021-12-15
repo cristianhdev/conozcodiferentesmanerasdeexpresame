@@ -104,7 +104,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
 
 .contenedor-actividad1-opcion1-A1 {
   display: flex;
-  height: max-content;
+  height: 57vh;
   align-items: center;
   align-content: center;
   text-align: center;
@@ -198,6 +198,7 @@ h6 {
 
 .button {
   width: 14vh;
+  margin: 0px auto;
   display: inline-block;
   /*  outline: 1px solid #009b7f;
     outline-offset: 2px; */
@@ -878,7 +879,22 @@ h6 {
   filter: grayscale(1)
 }
 
+.enabledbutton {
+  pointer-events: all;
+  filter: grayscale(0)
+}
 
+
+.titulo-presentacion{
+  position: absolute;
+  top: 4px;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
 
 @media only screen and (max-width: 600px) {
 
@@ -955,7 +971,7 @@ h6 {
 
   .contenedor-actividad1-opcion1-A1 {
     flex-direction: column;
-    /*  height: 45vh */
+     height: 65vh
   }
 
 
@@ -1078,5 +1094,21 @@ h6 {
   .responsive {
     width: 65%;
     height: auto;
+  }
+
+  .responsive-title {
+    width: 95%;
+    height: 4vh;
+  }
+  
+  .titulo-presentacion{
+    top:42px;
+    left:21px;
+    height: 6vh;
+  }
+
+
+  .titulo-presentacion img {
+    height: 4.1vh;
   }
 }

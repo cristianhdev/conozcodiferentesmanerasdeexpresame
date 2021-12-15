@@ -24,9 +24,20 @@
         this.audio.play();
         this.audio.addEventListener('ended',  () => {
             this.isFinalizado=true
-            callback()
+            if(callback!=null){
+                callback()
+            }
+           
         });
     }
+
+    playAudioFondo(){
+        this.audio.loop = true
+        this.audio.muted = false   
+        this.audio.play();
+    }
+
+    
     
    silenciarAudioParlante() {
         this.audio.muted = !this.audio.muted;
