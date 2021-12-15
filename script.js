@@ -224,11 +224,21 @@ function verificarRespuesta(e) {
             document.querySelector(`#${e}`).innerHTML = temporalTextoBoton
             document.querySelector(`#${e}`).classList.remove('opcionCorrectaIcono')
             document.querySelector(`#${e}`).classList.remove('opcionInCorrectaIcono')
-            document.querySelector(`#${e}`).classList.add('button')
+            if(!verifyMobile()){
+                document.querySelector(`#${e}`).classList.add('button')
+            }else{
+                document.querySelector(`#${e}`).classList.add('button-mobile')
+            }
+         
         }, 1000);
     }
 }
 
+
+function verifyMobile() {
+    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    return isMobile
+}
 
 function reiniciarBotonesA1() {
     botonesOopcionesA1.forEach(element => {
