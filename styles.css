@@ -971,7 +971,7 @@ h6 {
 
   .contenedor-actividad1-opcion1-A1 {
     flex-direction: column;
-     height: 67vh
+     height: 66vh
   }
 
 
@@ -1092,7 +1092,7 @@ h6 {
   }
 
   .responsive {
-    width: 65%;
+    width: 60%;
     height: auto;
   }
 
