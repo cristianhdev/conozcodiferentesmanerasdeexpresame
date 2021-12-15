@@ -1,17 +1,31 @@
+// Get the modal
+let modal = document.getElementById("myModal");
 
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
 
-let video;
+/* span.addEventListener('click', ocultarModal); */
+window.addEventListener('click', ocultarModalVentana)
 
 let menuactual;
 let menuactualSubmenu;
 let audioActividad = null;
-let audioOvers=null;
-let audioFondo=null;
-let audioBien=null;
-let audioMal=null;
+let audioOvers = null;
+let audioFondo = null;
+let audioBien = null;
+let audioMal = null;
 let verificaFinaudio;
 let elementoActualSound = null;
-let temporalTextoBoton = ''
+let botonActualTexto=null;
+let temporalTextoBoton = '';
+
+
+let botonesAudio=[
+    '#botonPlay1',
+    '#botonPlay2',
+    '#botonPlay3'
+]
+
 let botonesOopcionesA1 = [
     '#opcionA1-A1-0',
     '#opcionB1-A1-1',
@@ -33,8 +47,8 @@ let imag_drag_element;
 let slideadtividadDragDrogA1 = 0
 let slideadtividadDragDrogA2 = 0
 let slideadtividadDragDrogA3 = 0
-let puntosBuenoPorActividad=0
-let botonesActividadActual=null
+let puntosBuenoPorActividad = 0
+let botonesActividadActual = null
 let actividadesA1DragDrop = [
     '.actividad-drag-drop-A1-A1',
     '.actividad-drag-drop-A2-A1',
@@ -66,7 +80,7 @@ let botonesSiguienteA2 = [
     '#btn-menu-A2'
 ]
 
-let botonesSiguienteA3 = [   
+let botonesSiguienteA3 = [
     '#btn-actividad-drag-drop-A1-A3',
     '#btn-actividad-drag-drop-A2-A3',
     '#btn-menu-A3'
@@ -103,12 +117,12 @@ function menuPrincipal(id) {
 }
 
 
-function btnOverMenuP(){
+function btnOverMenuP() {
     audioOvers.playAudio()
 }
 
 
-function btnOutMenuP(){
+function btnOutMenuP() {
     audioOvers.stopAudio()
 }
 
@@ -149,7 +163,12 @@ function menuSubPrincipal(id) {
 }
 
 function retornarMenuSubMenu() {
-    reiniciarBotonesA1()
+    reiniciarBotonesActividad()
+    if(botonActualTexto!=null){
+        document.querySelector(`#${botonActualTexto}`).innerHTML = temporalTextoBoton
+    }
+    
+
     switch (menuactual) {
         case 'actividad1OpA1':
 
@@ -201,17 +220,17 @@ function retornarMenuPrincipal() {
             document.querySelector('.menu-principal').style.display = 'block'
             document.querySelector('.contenedor-actividad-drag-drop-A1').style.display = 'none'
             menuactualSubmenu = ''
-        break;
+            break;
         case 'btn2ActividadDrag':
             document.querySelector('.menu-principal').style.display = 'block'
             document.querySelector('.contenedor-actividad-drag-drop-A2').style.display = 'none'
             menuactualSubmenu = ''
-        break;
+            break;
         case 'btn3ActividadDrag':
             document.querySelector('.menu-principal').style.display = 'block'
             document.querySelector('.contenedor-actividad-drag-drop-A3').style.display = 'none'
             menuactualSubmenu = ''
-        break;
+            break;
 
 
         default:
@@ -224,7 +243,10 @@ function playSonido(id) {
 
     audioActividad.playAudio(verificarFinAudio)
     elementoActualSound = `#${id}`
-    audioFondo.stopAudio()
+    if(audioFondo.getPlayingFondo()){
+        audioFondo.stopAudio()
+    }
+    
     document.querySelector(`#${id}`).removeEventListener('click', playSonido, false)
     document.querySelector(`#${id}`).addEventListener('click', stopSonido, false)
     document.querySelector(`#${id}`).classList.remove('botonPlay')
@@ -240,7 +262,10 @@ function verificarFinAudio() {
 
 function stopSonido(e) {
     audioActividad.stopAudio()
-    audioFondo.playAudioFondo()
+    if(!audioActividad.getPlaying()){
+        audioFondo.playAudioFondo()
+    }
+   
     document.querySelector(`#${e.target.id}`).removeEventListener('click', stopSonido, false)
     document.querySelector(`#${e.target.id}`).addEventListener('click', playSonido, false)
     document.querySelector(`#${e.target.id}`).classList.add('botonPlay')
@@ -250,15 +275,16 @@ function stopSonido(e) {
 function verificarRespuesta(e) {
 
     let respuesta = e.substring(e.length - 1, e.length)
-   
+    temporalTextoBoton = document.querySelector(`#${e}`).innerHTML
+    botonActualTexto = e
 
     if (respuesta == 1) {
         document.querySelector(`#${e}`).innerHTML = ''
-
+        document.querySelector(`#${e}`).style.pointerEvents='none'
         document.querySelector(`#${e}`).classList.remove('button')
         document.querySelector(`#${e}`).classList.add('opcionCorrectaIcono')
     } else {
-        temporalTextoBoton = document.querySelector(`#${e}`).innerHTML
+
         document.querySelector(`#${e}`).style.pointerEvents = 'none'
         document.querySelector(`#${e}`).innerHTML = ''
         document.querySelector(`#${e}`).classList.remove('button')
@@ -269,12 +295,12 @@ function verificarRespuesta(e) {
             document.querySelector(`#${e}`).innerHTML = temporalTextoBoton
             document.querySelector(`#${e}`).classList.remove('opcionCorrectaIcono')
             document.querySelector(`#${e}`).classList.remove('opcionInCorrectaIcono')
-            if(!verifyMobile()){
+            if (!verifyMobile()) {
                 document.querySelector(`#${e}`).classList.add('button')
-            }else{
+            } else {
                 document.querySelector(`#${e}`).classList.add('button-mobile')
             }
-         
+
         }, 1000);
     }
 }
@@ -285,12 +311,25 @@ function verifyMobile() {
     return isMobile
 }
 
-function reiniciarBotonesA1() {
+function reiniciarBotonesActividad() {
+
+    if(audioActividad.getPlaying()){
+        audioActividad.stopAudio()
+    }
+    
+    audioFondo.stopAudio()
+
+    botonesAudio.forEach(element => {
+        document.querySelector(`${element}`).classList.remove('botonPause')
+        document.querySelector(`${element}`).classList.add('botonPlay')
+        document.querySelector(`${element}`).removeEventListener('click', stopSonido, false)
+        document.querySelector(`${element}`).addEventListener('click', playSonido, false)
+    });
+  
+    
     botonesOopcionesA1.forEach(element => {
         let respuesta = element.substring(element.length - 1, element.length)
-        if (respuesta == 1) {
-            document.querySelector(`${element}`).innerHTML = temporalTextoBoton
-        }
+        document.querySelector(`${element}`).style.pointerEvents='all'
         document.querySelector(`${element}`).classList.remove('opcionCorrectaIcono')
         document.querySelector(`${element}`).classList.remove('opcionInCorrectaIcono')
         document.querySelector(`${element}`).classList.add('button')
@@ -298,13 +337,13 @@ function reiniciarBotonesA1() {
 }
 
 function cargarActividadDragAndDrop(e) {
-    
+
     switch (e) {
         case 'btn1ActividadDrag':
             document.querySelector('#actividad1OpA1').style.display = 'none'
             document.querySelector('.contenedor-actividad-drag-drop-A1').style.display = 'block'
-            menuactualSubmenu='btn1ActividadDrag'
-            botonesActividadActual=botonesSiguienteA1
+            menuactualSubmenu = 'btn1ActividadDrag'
+            botonesActividadActual = botonesSiguienteA1
             botonesActividadActual.forEach(element => {
                 document.querySelector(`${element}`).classList.remove('disabledbutton')
                 document.querySelector(`${element}`).classList.add('disabledbutton')
@@ -314,8 +353,8 @@ function cargarActividadDragAndDrop(e) {
         case 'btn2ActividadDrag':
             document.querySelector('#actividad2OpA1').style.display = 'none'
             document.querySelector('.contenedor-actividad-drag-drop-A2').style.display = 'block'
-            menuactualSubmenu='btn2ActividadDrag'
-            botonesActividadActual=botonesSiguienteA2
+            menuactualSubmenu = 'btn2ActividadDrag'
+            botonesActividadActual = botonesSiguienteA2
             botonesActividadActual.forEach(element => {
                 document.querySelector(`${element}`).classList.remove('disabledbutton')
                 document.querySelector(`${element}`).classList.add('disabledbutton')
@@ -324,8 +363,8 @@ function cargarActividadDragAndDrop(e) {
         case 'btn3ActividadDrag':
             document.querySelector('#actividad3OpA1').style.display = 'none'
             document.querySelector('.contenedor-actividad-drag-drop-A3').style.display = 'block'
-            menuactualSubmenu='btn3ActividadDrag'
-            botonesActividadActual=botonesSiguienteA3
+            menuactualSubmenu = 'btn3ActividadDrag'
+            botonesActividadActual = botonesSiguienteA3
             botonesActividadActual.forEach(element => {
                 document.querySelector(`${element}`).classList.remove('disabledbutton')
                 document.querySelector(`${element}`).classList.add('disabledbutton')
@@ -342,21 +381,21 @@ function actividadSiguienteDragDropA1() {
     document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrogA1]}`).style.display = 'none'
     document.querySelector(`${actividadesA1DragDrop[slideadtividadDragDrogA1 + 1]}`).style.display = 'block'
     slideadtividadDragDrogA1++
-  
+
 }
 
 function actividadSiguienteDragDropA2() {
     document.querySelector(`${actividadesA2DragDrop[slideadtividadDragDrogA2]}`).style.display = 'none'
     document.querySelector(`${actividadesA2DragDrop[slideadtividadDragDrogA2 + 1]}`).style.display = 'block'
     slideadtividadDragDrogA2++
-   
+
 }
 
 function actividadSiguienteDragDropA3() {
     document.querySelector(`${actividadesA3DragDrop[slideadtividadDragDrogA3]}`).style.display = 'none'
     document.querySelector(`${actividadesA3DragDrop[slideadtividadDragDrogA3 + 1]}`).style.display = 'block'
     slideadtividadDragDrogA3++
-   
+
 }
 
 function allowDrop(ev) {
@@ -380,7 +419,6 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     let dropElemento = ev.path[0].id
-    console.log(figura_dragId.substring(0, 4), ev.path[0].id.substring(0, 4));
     if (figura_dragId.substring(0, 4) === ev.path[0].id.substring(0, 4)) {
 
         //bloque para verificar los pasos y los elementos a mostrar
@@ -394,8 +432,8 @@ function drop(ev) {
         document.querySelector(`#${figura_dragId}`).style.pointerEvents = 'none';
         puntosBuenoPorActividad++
         verificarAvenceBoton()
-        
-       
+
+
         /*  let data = ev.dataTransfer.getData("text");
          let nodeCopy = document.getElementById(data).cloneNode(true);
          nodeCopy.removeAttribute('draggable'); */
@@ -415,38 +453,13 @@ function drop(ev) {
 
 }
 
-function verificarAvenceBoton(){
-    if(puntosBuenoPorActividad==2){
-        puntosBuenoPorActividad=0
+function verificarAvenceBoton() {
+    if (puntosBuenoPorActividad == 2) {
+        puntosBuenoPorActividad = 0
         document.querySelector(`${botonesActividadActual[0]}`).classList.remove('disabledbutton')
         document.querySelector(`${botonesActividadActual[0]}`).classList.add('enabledbutton')
         botonesActividadActual.shift()
     }
-}
-// Get the modal
-let modal = document.getElementById("myModal");
-
-
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-/* span.addEventListener('click', ocultarModal); */
-window.addEventListener('click', ocultarModalVentana)
-
-function ocultarModal() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-function ocultarModalVentana(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-function MostrarVideo() {
-    modal.style.display = "flex";
 }
 
 
@@ -455,9 +468,6 @@ function imprimirHistoriaA1(event) {
 
     let textos = document.querySelectorAll('.textareaA1')
 
-    /*  textos.forEach((texto)=>{
-         console.log(texto.value);
-     }) */
 
     event.preventDefault()
 
@@ -615,4 +625,25 @@ function imagenData(id) {
 
     ctx.drawImage(img, 0, 0, c.width, c.height);
     return c.toDataURL();
+}
+
+
+function Clog(data){
+    console.log(data);
+}
+
+
+function ocultarModal() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+function ocultarModalVentana(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function MostrarVideo() {
+    modal.style.display = "flex";
 }

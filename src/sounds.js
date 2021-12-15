@@ -6,6 +6,8 @@
     path_sound = './assets/sounds/'
     sonido;
     isFinalizado=false
+    isPlaying=false
+    isPlayingFondo=false
 
 
     constructor(sonido) {
@@ -22,10 +24,12 @@
         /* this.audio.loop = loop */
         this.audio.muted = false   
         this.audio.play();
+        this.isPlaying=true
         this.audio.addEventListener('ended',  () => {
             this.isFinalizado=true
             if(callback!=null){
                 callback()
+                this.isPlaying=false
             }
            
         });
@@ -35,6 +39,7 @@
         this.audio.loop = true
         this.audio.muted = false   
         this.audio.play();
+        this.isPlayingFondo=true
     }
 
     
@@ -67,6 +72,14 @@
 
     getFinalizado(){
         return this.isFinalizado
+    }
+    
+    getPlayingFondo(){
+        return this.isPlayingFondo
+    }
+    
+    getPlaying(){
+        return this.isPlaying
     }
     
 
