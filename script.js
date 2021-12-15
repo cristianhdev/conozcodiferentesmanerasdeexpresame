@@ -480,6 +480,7 @@ function imprimirHistoriaA1(event) {
         text-align:center;
         width: 100vw;
         height: 100vh;
+        background-size: 100%;
         background-image: url('./assets/img/fondocomic.jpg');
         background-repeat: no-repeat;
         background-size: cover;
