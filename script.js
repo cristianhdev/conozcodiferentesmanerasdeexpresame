@@ -498,7 +498,13 @@ function imprimirHistoriaA1(event) {
             margin: 0px auto;
             background: #ffffffad;
         }
-        
+        @media print {
+            .divtexto{
+                width: 30vh ;
+            }
+        }
+    
+        @media print and (orientation:landscape) 
         </style>`);
     printWindow.document.write('</head><body >');
     printWindow.document.write(`<div class="contenedor-historia">
@@ -534,8 +540,7 @@ function imprimirHistoriaA2(event) {
 
     let params = [
         'height=' + screen.height,
-        'width=' + screen.width,
-        'fullscreen=yes' // only works in IE, but here for completeness
+        'width=' + screen.width//works in IE, but here for completeness
     ].join(',')
 
     var printWindow = window.open('Historia 1', '', params);
@@ -569,7 +574,14 @@ function imprimirHistoriaA2(event) {
             margin: 0px auto;
             background: #ffffffad;
         }
-        
+
+        @media print {
+        .divtexto{
+            width: 30vh ;
+        }
+        }
+
+        @media print and (orientation:landscape) 
         </style>`);
     printWindow.document.write('</head><body >');
     printWindow.document.write(`<div class="contenedor-historia">
