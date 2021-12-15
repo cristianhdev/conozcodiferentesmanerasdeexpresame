@@ -7,6 +7,8 @@ let menuactualSubmenu;
 let audioActividad = null;
 let audioOvers=null;
 let audioFondo=null;
+let audioBien=null;
+let audioMal=null;
 let verificaFinaudio;
 let elementoActualSound = null;
 let temporalTextoBoton = ''
@@ -76,6 +78,8 @@ function init() {
     audioOvers = new Sonidos('14');
     audioFondo = new Sonidos('44');
     audioFondo.playAudioFondo()
+    audioBien = new Sonidos('bien');
+    audioMal = new Sonidos('mal');
 
 
 }
@@ -380,7 +384,7 @@ function drop(ev) {
     if (figura_dragId.substring(0, 4) === ev.path[0].id.substring(0, 4)) {
 
         //bloque para verificar los pasos y los elementos a mostrar
-
+        audioBien.playAudio()
 
         let elementodrag = document.querySelector(`#${dropElemento}`)
         elementodrag.style.border = '1px solid green'
@@ -398,7 +402,7 @@ function drop(ev) {
         /* ev.target.appendChild(nodeCopy); */
 
     } else {
-
+        audioMal.playAudio()
         let elementodrag = document.querySelector(`#${dropElemento}`)
         elementodrag.style.border = '1px solid red'
         elementodrag.style.backgroundColor = '#ff00009e'
