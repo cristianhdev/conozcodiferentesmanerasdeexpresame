@@ -258,6 +258,8 @@ function verificarFinAudio() {
     audioFondo.playAudioFondo()
     document.querySelector(elementoActualSound).classList.remove('botonPause')
     document.querySelector(elementoActualSound).classList.add('botonPlay')
+    document.querySelector(elementoActualSound).removeEventListener('click', stopSonido, false)
+    document.querySelector(elementoActualSound).addEventListener('click', playSonido, false)
 }
 
 function stopSonido(e) {

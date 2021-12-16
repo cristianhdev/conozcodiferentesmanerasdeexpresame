@@ -706,6 +706,17 @@ h6 {
   margin: 0px auto
 }
 
+.botonPause {
+  width: 5vw;
+  height: 5vw;
+  background-image: url(./assets/img/BtnStop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+  margin: 0px auto
+}
+
 .opcionCorrectaIcono {
   background-color: green;
   border: 1px solid rgb(13, 77, 13);
@@ -749,16 +760,7 @@ h6 {
 
 
 
-.botonPause {
-  width: 5vw;
-  height: 5vw;
-  background-image: url(./assets/img/BtnStop.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  cursor: pointer;
-  margin: 0px auto
-}
+
 
 /* #menu1P::before{
   content:'LA NARRACIÓN';
