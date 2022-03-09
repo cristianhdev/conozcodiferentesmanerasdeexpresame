@@ -315,9 +315,12 @@ function verifyMobile() {
 
 function reiniciarBotonesActividad() {
 
-    if(audioActividad.getPlaying()){
-        audioActividad.stopAudio()
+    if(audioActividad!=null){
+        if(audioActividad.getPlaying()){
+            audioActividad.stopAudio()
+        }
     }
+   
     
     audioFondo.stopAudio()
 
